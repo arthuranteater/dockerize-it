@@ -1,4 +1,5 @@
 # dockerize-it
 
+## One-stop shop for dockerizing everything!
 
-## One-stop repo for dockerizing all code.
+### [Cheatsheet](https://github.com/arthuranteater/dockerize-it/blob/main/cheatsheet.md)
