@@ -254,19 +254,19 @@ docker run --net <b>network_name</b>
 
 ## Orchestration Tools
 
-New Relic’s Centurion
-Spotify’s Helios
-Ansible’s Docker
+- New Relic’s Centurion
+- Spotify’s Helios
+- Ansible’s Docker
 
 ## Distributed Schedulers
 
-Google’s Kubernetes
-Apache Mesos
+- Google’s Kubernetes
+- Apache Mesos
 
 ## Cloud Providers
 
-Amazon EC2 Container Service
-Google Container Engine
-Red Hat OpenShift 3
-Joyent Triton
-Microsoft Azure
+- Amazon EC2 Container Service
+- Google Container Engine
+- Red Hat OpenShift 3
+- Joyent Triton
+- Microsoft Azure
