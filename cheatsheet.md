@@ -59,6 +59,10 @@ docker run <b>base_image_name:tag_name</b> + <b>args_for_ENTRYPOINT</b> --name <
 
 -it = shell into the running container
 
+-e = environment variable -e PORT...
+
+--rm removes container after shutdown
+
 
 ## Rename Container
 <pre>
