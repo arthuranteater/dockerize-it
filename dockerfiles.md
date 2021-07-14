@@ -1,4 +1,6 @@
-Node Dockerfile example
+#Dockerfile Examples
+
+Node
 ```# How to add arg to build...
 # ARG BASE_IMAGE
 # FROM $BASE_IMAGE
@@ -25,7 +27,7 @@ EXPOSE 4000
 CMD ["node", "server.js"]
 ```
 
-Node Express Server Example
+Node Express Server
 ```
 # ARG BASE_IMAGE
 # FROM $BASE_IMAGE
@@ -52,7 +54,7 @@ EXPOSE 4000
 CMD ["node", "server.js"]
 ```
 
-React Example
+React
 ```
 FROM node:latest
 WORKDIR /app
@@ -63,7 +65,7 @@ RUN npm i
 COPY . ./
 CMD ["npm", "start"]
 ```
-Angular Example using Node builder plus Nginx Alpine
+Angular using Node plus Nginx Alpine
 ```
 FROM node as builder
 
