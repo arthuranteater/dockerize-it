@@ -32,3 +32,34 @@ services:
   #    MONGO_INITDB_ROOT_USERNAME: root
   #    MONGO_INITDB_ROOT_PASSWORD: example
 ```
+.NET WEb API with SQL
+
+```
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
+    volumes:
+      - sql-data:/var/opt/mssql/data
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password123
+  cardealerwebapi:
+    image: cardealerwebapi
+    build:
+      context: .
+      dockerfile: CarDealerWebAPI/Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - sqlserver
+    restart: always
+volumes:
+  sql-data:
+  ```
