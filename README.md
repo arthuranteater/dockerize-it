@@ -1,8 +1,6 @@
 # Dockerize It!
 
-A cheatsheet for Docker commands and tips. 
-
-Along with examples of Dockerfiles and Docker-compose files.
+A guide for Docker along with examples of Dockerfiles and Docker-compose files.
 
 # Docker Commands
 
