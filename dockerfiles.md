@@ -84,7 +84,7 @@ COPY --from=builder /app/dist/carDealerClient .
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 ```
 
-.NET Web Api Example
+.NET Web API Example
 ```
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
@@ -110,3 +110,12 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CarDealerWebAPI.dll"]
 ```
+
+Java Spring Web API
+```
+FROM openjdk:8
+ADD target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar","demo-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8080
+```
+
