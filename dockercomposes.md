@@ -6,7 +6,7 @@ services:
   react:
     tty: true
     build:
-      context: ./ClientApp
+      context: ./<directory>
       dockerfile: Dockerfile
     ports: 
       - "3001:3000"
@@ -51,11 +51,11 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password123
-  cardealerwebapi:
-    image: cardealerwebapi
+  <app_name>:
+    image: <custom_img_name>
     build:
       context: .
-      dockerfile: CarDealerWebAPI/Dockerfile
+      dockerfile: <directory>/Dockerfile
     ports:
       - 5000:5000
     depends_on:
