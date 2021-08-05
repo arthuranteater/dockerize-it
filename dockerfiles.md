@@ -7,8 +7,6 @@ Node
 
 FROM node:latest
 
-
-
 # Create working directory
 WORKDIR /usr/src/app
 # Install app dependencies
@@ -33,8 +31,6 @@ Node Express Server
 # FROM $BASE_IMAGE
 
 FROM node:latest
-
-
 
 # Create working directory
 WORKDIR /usr/src/app
@@ -81,7 +77,7 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=builder /app/dist/carDealerClient .
+COPY --from=builder /app/dist/<app_name> .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 ```
@@ -98,26 +94,26 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["CarDealerWebAPI/CarDealerWebAPI.csproj", "CarDealerWebAPI/"]
-RUN dotnet restore "CarDealerWebAPI\CarDealerWebAPI.csproj"
+COPY ["<app_name>/<app_name>.csproj", "<app_name>/"]
+RUN dotnet restore "<app_name>\<app_name>.csproj"
 COPY . .
-WORKDIR "/src/CarDealerWebAPI"
-RUN dotnet build "CarDealerWebAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/<app_name>"
+RUN dotnet build "<app_name>.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CarDealerWebAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "<app_name>.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CarDealerWebAPI.dll"]
+ENTRYPOINT ["dotnet", "<app_name>.dll"]
 ```
 
 Java Spring Web API
 ```
 FROM openjdk:8
-ADD target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar","demo-0.0.1-SNAPSHOT.jar"]
+ADD target/<app_name>-0.0.1-SNAPSHOT.jar <app_name>-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar","<app_name>-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080
 ```
 
